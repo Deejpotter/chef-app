@@ -1,38 +1,132 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
+/* ---------- Variables ---------- */
+
+:root {
+  --main: #25bb64;
+  --light-accent: #73c2d4;
+  --dark-accent: #513d47;
+  --light: #fcfafb;
+  --dark: #08080c;
+  --dark-trans: #08080c70;
+  --red: lightcoral;
+  --heading-font: "Fredoka One", serif;
+  --body-font: "Nunito", sans-serif;
+  --breakpoint-1: 650px;
+  --breakpoint-2: 1200px;
+  --card-size: 250px;
+  --bottom-margin: 0 0 15px 0;
+  --bigger-margin: 0 0 30px 0;
+  --box-shadow: 4px 8px 16px 0px var(--dark-trans);
+  --box-shadow-top: 0 0 8px 0px var(--dark-trans);
+  --box-shadow-inset: inset 0px 1px 4px 1px var(--dark-trans);
+  --default-radius: 8px;
+  --border-radius: 8px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ---------- Base ---------- */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+body {
+  background-color: var(--light);
+  color: var(--dark);
+  font-family: var(--body-font);
+  font-size: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--heading-font);
+  font-weight: 400;
+}
+
+a {
+  color: var(--main);
+  text-decoration: none;
+}
+
+/* ---------- Util ---------- */
+
+.container {
+  display: flex;
+  width: 100%;
+}
+
+@media (min-width: 700px) {
+  .container {
+    max-width: var(--breakpoint-2);
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container-center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+@media (min-width: 700px) {
+  .container-center {
+    max-width: var(--breakpoint-2);
+  }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.container-col {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 700px) {
+  .container-col {
+    max-width: var(--breakpoint-2);
   }
-  to {
-    transform: rotate(360deg);
+}
+
+.shadow {
+  box-shadow: var(--box-shadow);
+}
+
+.radius {
+  border-radius: var(--border-radius);
+}
+
+.red {
+  background-color: lightcoral;
+}
+
+/* ----- Header ----- */
+
+.container-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (min-width: 700px) {
+  .container-header {
+    max-width: var(--breakpoint-2);
   }
+}
+
+/* ---------- Footer ---------- */
+
+.container-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+@media (min-width: 700px) {
+  .container-footer {
+    max-width: var(--breakpoint-2);
+  }
+}
+
+.container-footer button {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--dark);
 }
