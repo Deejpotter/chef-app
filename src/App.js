@@ -1,5 +1,5 @@
 import React, { useReducer, useEffect } from "react";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import './App.css';
 import Footer from "./components/Footer/Footer";
@@ -7,12 +7,7 @@ import Header from "./components/Header/Header";
 import Container from "./components/Util/Container";
 
 // Reducer functions
-const initialState = localStorage.getItem("appState")
-	? JSON.parse(localStorage.getItem("appState"))
-	: {
-		username: "",
-		items: []
-	};
+const initialState = localStorage.getItem("appState") ? JSON.parse(localStorage.getItem("appState")) : {username: "", items: []};
 
 function reducer(state, action) {
 	switch (action.type) {
@@ -32,10 +27,14 @@ function App() {
 		<BrowserRouter>
 			<Header />
 			<Switch>
+				<Route exact path="/dashboard">
+					
+				</Route>
+				<Route exact path="/login">
+					
+				</Route>
 				<Route exact path="/">
-					<Container ext="center">
-						{state.username ? <p>Logged In</p> : <p>Not Logged In</p>}
-					</Container>
+					{ state.username ? <Redirect to='/dashboard' /> : <Redirect to='/login' /> }
 				</Route>
 			</Switch>
 			<Footer state={state} dispatch={dispatch} />

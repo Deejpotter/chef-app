@@ -7,7 +7,7 @@ function Header(props) {
     <header>
       <Container ext='header'>
         <Link to='/'>
-          <h1>Todo app</h1>
+          <h1>Todo App</h1>
         </Link>
       </Container>
     </header>
