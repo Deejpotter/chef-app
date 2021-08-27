@@ -7,7 +7,7 @@ import Header from "./components/Header/Header";
 import Container from "./components/Util/Container";
 
 // Reducer functions
-const initialState = localStorage.getItem("appState") ? JSON.parse(localStorage.getItem("appState")) : {username: "", items: []};
+const initialState = localStorage.getItem("appState") ? JSON.parse(localStorage.getItem("appState")) : { username: "" };
 
 function reducer(state, action) {
 	switch (action.type) {
@@ -28,13 +28,13 @@ function App() {
 			<Header />
 			<Switch>
 				<Route exact path="/dashboard">
-					
+
 				</Route>
 				<Route exact path="/login">
-					
+					<Login />
 				</Route>
 				<Route exact path="/">
-					{ state.username ? <Redirect to='/dashboard' /> : <Redirect to='/login' /> }
+					{state.username ? <Redirect to='/dashboard' /> : <Redirect to='/login' />}
 				</Route>
 			</Switch>
 			<Footer state={state} dispatch={dispatch} />
