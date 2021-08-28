@@ -2,8 +2,10 @@ import React, { useReducer, useEffect } from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 
 import './App.css';
+import Dashboard from "./components/Dashboard/Dashboard";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
+import Login from "./components/Login/Login";
 import Container from "./components/Util/Container";
 
 // Reducer functions
@@ -28,7 +30,7 @@ function App() {
 			<Header />
 			<Switch>
 				<Route exact path="/dashboard">
-
+					<Dashboard />
 				</Route>
 				<Route exact path="/login">
 					<Login />
