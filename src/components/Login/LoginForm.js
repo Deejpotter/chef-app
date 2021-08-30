@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function LoginForm() {
+function LoginForm({dispatch}) {
     const initialState = { username: '', password: '' };
     const [value, setValue] = useState(initialState);
 
