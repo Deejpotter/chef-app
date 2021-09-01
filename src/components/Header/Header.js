@@ -1,17 +1,15 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import Container from "../Util/Container"
+import React from "react";
+import { Link } from "react-router-dom";
+import Container from "../Util/Container";
 
 function Header(props) {
   return (
     <header>
-      <Container ext='header'>
-        <Link to='/'>
-          <h1>Todo App</h1>
-        </Link>
-      </Container>
+      <Link to='/'>
+        <h1>Chef Helper</h1>
+      </Link>
     </header>
-  )
+  );
 }
 
-export default Header
+export default Header;

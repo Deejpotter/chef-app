@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import Container from "../Util/Container";
+import ButtonLink from "../Util/ButtonLink";
 import LoginForm from "./LoginForm";
 
-function Login() {
+function Login({ dispatch }) {
   return (
-    <Container ext='center'>
-      <h2>Enter your details to start using your account</h2>
+    <>
+      <h2>Enter your account details to log in</h2>
       <p>You're nearly ready to start keeping track of your stock.</p>
       <LoginForm />
-    </Container>
+      <p className='mb-1'>-or-</p>
+      <ButtonLink to='/create' bg='main' fg='light'>Create account</ButtonLink>
+    </>
   );
 }
 
-export default Login;
+export default Login;;

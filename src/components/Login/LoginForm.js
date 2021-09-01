@@ -1,6 +1,10 @@
 import React, { useState } from "react";
+import UserContext from "../Util/UserContext";
 
-function LoginForm({dispatch}) {
+function LoginForm({ }) {
+
+    const user = useContext(UserContext);
+
     const initialState = { username: '', password: '' };
     const [value, setValue] = useState(initialState);
 
@@ -11,12 +15,12 @@ function LoginForm({dispatch}) {
         setValue("");
     };
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='login-form' onSubmit={handleSubmit}>
             <label htmlfor="usernameField">Username:</label>
-            <input autoFocus id='usernameField' type="text" value={value} onChange={e => setValue(e.target.value)} />
+            <input autoFocus id='usernameField' className='radius shadow-light' type="text" value={value.username} onChange={e => setValue(e.target.value)} />
             <label htmlfor="passwordField">Password:</label>
-            <input id='passwordField' type="text" value={value} onChange={e => setValue(e.target.value)} />
-            <input type="submit" value="Login" />
+            <input id='passwordField' className='radius shadow-light' type="password" placeholder='' value={value.password} onChange={e => setValue(e.target.value)} />
+            <input className='bg-main fg-light radius shadow' type="submit" value="Login" />
         </form>
     );
 }

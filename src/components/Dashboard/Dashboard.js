@@ -1,12 +1,12 @@
-import React from "react"
-import Container from "../Util/Container"
+import React from "react";
+import Container from "../Util/Container";
 
 function Dashboard(props) {
   return (
-      <Container>
-          Dash
-     </Container>
-  )
+    <>
+      Dash
+    </>
+  );
 }
 
-export default Dashboard
+export default Dashboard;

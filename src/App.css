@@ -1,6 +1,6 @@
 /* ---------- Fonts ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap');
 /* ---------- Variables ---------- */
 
 :root {
@@ -10,6 +10,7 @@
   --light: #fcfafb;
   --dark: #08080c;
   --dark-trans: #08080c70;
+  --dark-trans-light: #08080c33;
   --red: lightcoral;
   --heading-font: "Fredoka One", serif;
   --body-font: "Nunito", sans-serif;
@@ -19,6 +20,7 @@
   --bottom-margin: 0 0 15px 0;
   --bigger-margin: 0 0 30px 0;
   --box-shadow: 4px 8px 16px 0px var(--dark-trans);
+  --box-shadow-light: 4px 8px 16px 0px var(--dark-trans-light);
   --box-shadow-top: 0 0 8px 0px var(--dark-trans);
   --box-shadow-inset: inset 0px 1px 4px 1px var(--dark-trans);
   --default-radius: 8px;
@@ -41,7 +43,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--heading-font);
-  margin: 1rem 0;
+  margin: 0 0 1rem 0;
   font-weight: 400;
 }
 
@@ -51,7 +53,30 @@ a {
   text-decoration: none;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+}
+
+label {
+  font-weight: 700;
+}
+
+button, input, .button-link {
+  padding: .5rem;
+  margin-bottom: 1rem;
+  border-width: 1px;
+  border-color: var(--dark-trans-light);
+  font-family: var(--body-font);
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 /* ---------- Util ---------- */
+
+/* ----- Containers ----- */
 
 .container {
   display: flex;
@@ -64,11 +89,19 @@ a {
   }
 }
 
+.container-top-level {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 1rem;
+}
+
 .container-center {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
 }
 
 @media (min-width: 700px) {
@@ -88,19 +121,75 @@ a {
   }
 }
 
+/* ----- Mods ----- */
+
 .shadow {
   box-shadow: var(--box-shadow);
+}
+
+.shadow-light {
+  box-shadow: var(--box-shadow-light);
 }
 
 .radius {
   border-radius: var(--border-radius);
 }
 
-.red {
-  background-color: lightcoral;
+.mb-1 {
+  margin-bottom: 1rem;
 }
 
-/* ----- Header ----- */
+/* ----- Colours ----- */
+
+.bg-main {
+  background-color: var(--main);
+}
+
+.bg-light {
+  background-color: var(--light);
+}
+
+.bg-dark {
+  background-color: var(--dark);
+}
+
+.bg-light-accent {
+  background-color: var(--light-accent);
+}
+
+.bg-dark-accent {
+  background-color: var(--dark-accent);
+}
+
+.bg-red {
+  background-color: var(--red);
+}
+
+.fg-main {
+  color: var(--main);
+}
+
+.fg-light {
+  color: var(--light);
+}
+
+.fg-dark {
+  color: var(--dark);
+}
+
+.fg-light-accent {
+  color: var(--light-accent);
+}
+
+.fg-dark-accent {
+  color: var(--dark-accent);
+}
+
+.fg-red {
+  color: var(--red);
+}
+
+/* ---------- Header ---------- */
 
 .container-header {
   display: flex;
