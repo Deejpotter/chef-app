@@ -12,10 +12,21 @@ import initialUser from "./components/Util/initialUser";
 import UserContext from "./components/Util/UserContext";
 
 // Reducer functions
-const initialState = localStorage.getItem("appState") ? JSON.parse(localStorage.getItem("appState")) : initialUser;
+const initialState = localStorage.getItem("userState") ? JSON.parse(localStorage.getItem("userState")) : initialUser;
 
 function reducer(state, action) {
 	switch (action.type) {
+		case 'login':
+			let newState = {};
+			if (!state.hasAccount) {
+				throw new Error("Don't have an account");
+			}
+			newState = {
+				username: action.value.username,
+				password: action.value.password,
+				...state
+			};
+			return newState;
 		default:
 			throw new Error("Not an action");
 	}
@@ -25,11 +36,11 @@ function App() {
 	const [user, dispatch] = useReducer(reducer, initialState);
 
 	useEffect(() => {
-		localStorage.setItem("appState", JSON.stringify(user));
+		localStorage.setItem("userState", JSON.stringify(user));
 	}, [user]);
 
 	return (
-		<UserContext.Provider value={user}>
+		<UserContext.Provider value={user, dispatch}>
 			<BrowserRouter>
 				<Container ext='top-level'>
 					<Header />
@@ -44,7 +55,7 @@ function App() {
 							<CreateAccount />
 						</Route>
 						<Route exact path="/">
-							{user.username ? <Redirect to='/dashboard' /> : <Redirect to='/login' />}
+							{user.hasAccount ? <Redirect to='/dashboard' /> : <Redirect to='/login' />}
 						</Route>
 					</Switch>
 					<Footer user={user} dispatch={dispatch} />

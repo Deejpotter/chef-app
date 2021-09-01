@@ -1,25 +1,25 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import UserContext from "../Util/UserContext";
 
 function LoginForm({ }) {
 
-    const user = useContext(UserContext);
+    const { dispatch } = useContext(UserContext);
 
     const initialState = { username: '', password: '' };
     const [value, setValue] = useState(initialState);
 
     const handleSubmit = e => {
         e.preventDefault();
-        if (!value) return;
+        if (!value.username || !value.password) return;
         dispatch({ type: 'login', loginDetails: value });
         setValue("");
     };
     return (
         <form className='login-form' onSubmit={handleSubmit}>
-            <label htmlfor="usernameField">Username:</label>
-            <input autoFocus id='usernameField' className='radius shadow-light' type="text" value={value.username} onChange={e => setValue(e.target.value)} />
-            <label htmlfor="passwordField">Password:</label>
-            <input id='passwordField' className='radius shadow-light' type="password" placeholder='' value={value.password} onChange={e => setValue(e.target.value)} />
+            <label htmlFor="usernameField">Username:</label>
+            <input autoFocus id='usernameField' className='radius shadow-light' type="text" value={value.username} onChange={e => setValue({ username: e.target.value, password: value.password })} />
+            <label htmlFor="passwordField">Password:</label>
+            <input id='passwordField' className='radius shadow-light' type="password" placeholder='' value={value.password} onChange={e => setValue({ username: value.username, password: e.target.value })} />
             <input className='bg-main fg-light radius shadow' type="submit" value="Login" />
         </form>
     );
