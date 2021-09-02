@@ -1,6 +1,6 @@
-import React from "react";
+import { reducer } from './functions';
 
-const initialUser = {
+const initialState = {
     id: 1,
     hasAccount: false,
     username: '',
@@ -10,4 +10,4 @@ const initialUser = {
     stock: []
 };
 
-export default initialUser;
+export default initialState;
